@@ -2,7 +2,7 @@
         background-color: rgb(216, 195, 147);
     }
     h1 {
-        text-align: right;
+        text-align: center;
         font-family: 'Times New Roman', Times, serif;
         font-size: xx-large
     }
@@ -52,5 +52,5 @@
       .logo img {
         width: 190px; 
         height: 190px; 
-        margin-right: 400px; 
+        margin-right: 20px; 
       }

@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="styles.css">
 <style>
     .navbar {
-    background-color: rgba(137,17,76,0.9);
+    background-color: rgba(65, 3, 33, 0.9);
 }
 
 .navbar .navbar-brand,
@@ -24,6 +24,10 @@
 .navbar .nav-item:hover .nav-link {
     color: #ffffff;
 }
+.custom-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(241,135,187, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
 
 
 </style>
@@ -34,7 +38,7 @@
             
             <div class="container">
               <a class="navbar-brand" href="#">Herkkutaivas</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+              <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="collapsibleNavbar">

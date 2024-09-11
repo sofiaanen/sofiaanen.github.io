@@ -5,7 +5,6 @@
     <title>Herkkutaivas</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<link rel="stylesheet" href="styles.css">
 <style>
 body {
       background-color: rgba(65, 3, 33, 0.9);
@@ -107,7 +106,7 @@ body {
                   </li>
   
                   <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#menu" role="button" data-bs-toggle="dropdown">Menu</a>
+                    <a class="nav-link dropdown-toggle" href="#accordion" role="button" data-bs-toggle="dropdown">Menu</a>
                     <ul class="dropdown-menu">
                       <li><a class="dropdown-item" href="#bagel">Bagel</a></li>
                       <li><a class="dropdown-item" href="#donitsi">Donitsi</a></li>
@@ -190,8 +189,8 @@ body {
             </div>
 
 
-            <div id="menu"></div>
-            <div class="container mt-5">
+
+            <div class="container mt-5" id="menu">
               <div class="row">
               
                   <div class="col-md-3" id="bagel">
@@ -234,6 +233,65 @@ body {
                 </div>
             </div>
             
+
+
+
+            <div id="accordion">
+
+              <div class="card">
+                <div class="card-header">
+                  <a class="btn" data-bs-toggle="collapse" href="#collapseOne">
+                    Bagelit
+                  </a>
+                </div>
+                <div id="collapseOne" class="collapse show" data-bs-parent="#accordion">
+                  <div class="card-body">
+                    Lorem ipsum..
+                  </div>
+                </div>
+              </div>
+            
+              <div class="card">
+                <div class="card-header">
+                  <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseTwo">
+                    Donitsit
+                  </a>
+                </div>
+                <div id="collapseTwo" class="collapse" data-bs-parent="#accordion">
+                  <div class="card-body">
+                    Lorem ipsum..
+                  </div>
+                </div>
+              </div>
+            
+              <div class="card">
+                <div class="card-header">
+                  <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseThree">
+                    Kahvit
+                  </a>
+                </div>
+                <div id="collapseThree" class="collapse" data-bs-parent="#accordion">
+                  <div class="card-body">
+                    Lorem ipsum..
+                  </div>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card-header">
+                  <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseFour">
+                    Smoothiet
+                  </a>
+                </div>
+                <div id="collapseFour" class="collapse" data-bs-parent="#accordion">
+                  <div class="card-body">
+                    Lorem ipsum..
+                  </div>
+                </div>
+              </div>
+            
+            
+            </div>
 
 </body>
 </html>

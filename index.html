@@ -38,17 +38,25 @@
   cursor: pointer;
   }
 
+  .nav-link.active {
+	  color: white !important;
+	}
+
+  body { position: relative; 
+	  }
+
+
 
 
 </style>
 </head>
-<body>
+<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="50">
 
-        <nav class="navbar navbar-expand-sm navbar-dark">
+        <nav class="navbar navbar-expand-sm navbar-dark fixed-top">
             
-            <div class="container">
+            <div class="container" id="alku">
             <img src="kahvikuppi.png" alt="Logo" style="width:40px;">
-              <a class="navbar-brand" href="#">Herkkutaivas</a>
+              <a class="navbar-brand" href="#alku">Herkkutaivas</a>
               <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
                 <span class="navbar-toggler-icon"></span>
               </button>
@@ -66,11 +74,7 @@
                     <ul class="dropdown-menu">
                       <li><a class="dropdown-item" href="#">Link</a></li>
                       <li><a class="dropdown-item" href="#">Another link</a></li>
-                      <li><a class="dropdown-item" href="#">A third link</a></li>
-
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Ota yhteyttä</a>
-                </li> 
+                      <li><a class="dropdown-item" href="#">A third link</a></li> 
                     </ul>
                   </li>
                 </ul>

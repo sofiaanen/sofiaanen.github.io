@@ -86,18 +86,26 @@ body {
     padding-top: 30px;
 }
 
-.card-header:hover {
-    background-color: #343a40; 
-    color: white; 
-    cursor: pointer;
+.card-header a {
+    color: white;
+    text-decoration: none; 
 }
 
-.card-header .btn {
-    box-shadow: none; 
-    border: none; 
-    color: inherit; 
+.card-header a:hover {
+    color: rgba(65, 3, 33, 0.9);
 }
 
+.accordion-img {
+    width: 100px; 
+    height: auto; 
+    margin-right: 15px; 
+    border-radius: 10px; 
+}
+
+.accordion-body {
+    display: flex; 
+    align-items: center; 
+}
 </style>
 
 
@@ -263,9 +271,11 @@ body {
                 <div id="collapseOne" class="collapse" data-bs-parent="#accordion">
                   <div class="card-body">
                     <img src="bagel.jpg" alt="bagel" class="accordion-img">
+                    <div>
                     <p>Tonnikala bagel</p>
                     <p>Halloum bagel</p>
                     <p>Kinkku bagel</p>
+                  </div>
                   </div>
                 </div>
               </div>
@@ -279,9 +289,11 @@ body {
                 <div id="collapseTwo" class="collapse" data-bs-parent="#accordion">
                   <div class="card-body">
                     <img src="donitsi.jpg" alt="donitsi" class="accordion-img">
+                    <div>
                     <p>Suklaadonitsi</p>
                     <p>Vaniljadontsi</p>
                     <p>Valkosuklaa donitsi</P>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -295,9 +307,11 @@ body {
                 <div id="collapseThree" class="collapse" data-bs-parent="#accordion">
                   <div class="card-body">
                     <img src="kahvi.jpg" alt="kahvi" class="accordion-img">
+                    <div>
                     <p>Jäälatte</p>
                     <p>Lämmin tumma Kahvi</p>
                     <p>Cappuccino</p>
+                  </div>
                   </div>
                 </div>
               </div>
@@ -311,9 +325,11 @@ body {
                 <div id="collapseFour" class="collapse" data-bs-parent="#accordion">
                   <div class="card-body">
                     <img src="smoothie1.jpg" alt="Image 1" class="accordion-img">
+                    <div>
                     <p>Mustikka smoothie</p>
                     <p>Banaani mansikka smoothie</p>
                     <p>Mango smoothie</p>
+                  </div>
                   </div>
                 </div>
               </div>

@@ -18,9 +18,7 @@
 
 
 .then(function (responseJson) {
- 
-  document.getElementById("vastaus").innerHTML =
-"<p>Jatketaan harjoitusta</p>";
+  kerro(responseJson);
 })
 
 
@@ -28,5 +26,32 @@
   document.getElementById("vastaus").innerHTML =
   "<p>Tietoa ei pystytä hakemaan</p>";
 })
+
+function kerro(data) {
+  const vastausDiv = document.getElementById("vastaus");
+  let content = `
+            <h1>${data.otsikko}</h1>
+            <p>${data.kuvaus}</p>
+            <img src="${data.kuva}" alt="Kuva liittyen opintojaksoon" />
+            <h2>${data.opintojakso.nimi} (${data.opintojakso.tunnus})</h2>
+            <p>Opintopisteet: ${data.opintojakso.opintopisteet}</p>
+            <ul>
+                ${data.opintojakso.sisalto.map(item => `<li>${item}</li>`).join('')}
+            </ul>
+            <h3>Tekniikat</h3>
+            <ul>
+                ${data.tekniikat.map(tech => `<li><a href="${tech.linkki}">${tech.aihe}</a></li>`).join('')}
+            </ul>
+        `;
+
+        vastausDiv.innerHTML = content;
+      }
+
+      function kerro(data){
+var teksti = "";
+teksti = "<h1>" + data.otsikko + "</h1>";
+document.getElementById("vastaus").innerHTML = teksti;
+}
+
 
 </script>

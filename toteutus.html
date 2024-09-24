@@ -8,6 +8,7 @@
 <body> 
     <div id="vastaus">
     </div>
+    <button id="switchPageButton">Siirry kurssi.html-sivulle</button>
 </body>
 <script>
      fetch('https://run.mocky.io/v3/a4949723-49f9-42a7-946e-a3b0fda635d0')
@@ -41,4 +42,12 @@ function kerro(data) {
         `;
         vastausDiv.innerHTML = teksti;
       }
+
+      document.getElementById('switchPageButton').onclick = function() {
+            if (window.location.href.includes('toteutus.html')) {
+                window.location.href = 'kurssi.html';
+            } else {
+                window.location.href = 'toteutus.html';
+            }
+        };
 </script>

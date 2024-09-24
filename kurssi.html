@@ -29,7 +29,9 @@
 
 function kerro(data) {
   const vastausDiv = document.getElementById("vastaus");
-  let content = `
+  let teksti = vastausDiv.innerHTML;
+  teksti = teksti + "<p>" + data.kuvaus + "</p>";
+  teksti += `
             <h1>${data.otsikko}</h1>
             <p>${data.kuvaus}</p>
             <img src="${data.kuva}" alt="Kuva liittyen opintojaksoon" />
@@ -44,7 +46,7 @@ function kerro(data) {
             </ul>
         `;
 
-        vastausDiv.innerHTML = content;
+        vastausDiv.innerHTML = teksti;
       }
 
       function kerro(data){

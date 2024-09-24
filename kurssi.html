@@ -30,7 +30,6 @@
 function kerro(data) {
   const vastausDiv = document.getElementById("vastaus");
   let teksti = vastausDiv.innerHTML;
-  teksti = teksti + "<p>" + data.kuvaus + "</p>";
   teksti += `
             <h1>${data.otsikko}</h1>
             <p>${data.kuvaus}</p>

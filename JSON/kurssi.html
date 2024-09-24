@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <title>JSON Example</title>  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+<body> 
+    <div id="vastaus">
+    </div>
+</body>
+<script>
+    fetch('https://run.mocky.io/v3/45c8776f-01b4-472f-be51-53fe5c958119')
+
+.then(function (response) { return response.json();
+})
+
+
+.then(function (responseJson) {
+ 
+
+"<p>Jatketaan harjoitusta</p>";
+})
+
+
+.catch(function (error) { document.getElementById("vastaus").innerHTML = "<p>Tietoa ei pystytä hakemaan</p>";
+})
+
+</script>

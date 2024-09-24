@@ -10,7 +10,7 @@
     </div>
 </body>
 <script>
-     fetch('https://run.mocky.io/v3/24cf15f1-5977-4d26-9c40-645531d55746')
+     fetch('https://run.mocky.io/v3/9190e945-33b3-4b90-8b9d-34bc89947527')
      
      .then(function (response) {
   return response.json();
@@ -30,7 +30,7 @@
 function kerro(data) {
   const vastausDiv = document.getElementById("vastaus");
   let teksti = vastausDiv.innerHTML;
-  teksti = teksti + "<p>" + data.kuvaus + "</p>";
+  teksti = teksti + "<p>" + data.toteutuksen_nimi + "</p>";
   teksti += `
    <h1>${data.toteutuksen_nimi}</h1>
           <p>${data.osallistujien_lukumaara}</p>

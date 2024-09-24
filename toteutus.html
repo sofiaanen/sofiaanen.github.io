@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <title>JSON Example</title>  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+<body> 
+    <div id="vastaus">
+    </div>
+</body>
+<script>
+     fetch('https://run.mocky.io/v3/24cf15f1-5977-4d26-9c40-645531d55746')
+     
+     .then(function (response) {
+  return response.json();
+})
+
+
+.then(function (responseJson) {
+  kerro(responseJson);
+})
+
+
+.catch(function (error) {
+  document.getElementById("vastaus").innerHTML =
+  "<p>Tietoa ei pystytä hakemaan</p>";
+})
+
+function kerro(data) {
+  const vastausDiv = document.getElementById("vastaus");
+  let teksti = vastausDiv.innerHTML;
+  teksti = teksti + "<p>" + data.kuvaus + "</p>";
+  teksti += `
+   <h1>${data.toteutuksen_nimi}</h1>
+          <p>${data.osallistujien_lukumaara}</p>
+          <p>${data.osallistujien_nimet.join(', ')}</p>
+          <p>${data.toteutuksen_aika.alkamisaika} - ${data.toteutuksen_aika.loppumisaika}</p>
+          <p>${data.toteutuksen_kesto_viikoissa}</p>
+          <img src="${data.kuva}" alt="Kuva liittyen opintojaksoon" style="max-width: 400px;">
+        `;
+        vastausDiv.innerHTML = teksti;
+      }
+</script>

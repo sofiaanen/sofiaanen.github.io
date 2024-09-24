@@ -33,11 +33,11 @@ function kerro(data) {
   teksti = teksti + "<p>" + data.toteutuksen_nimi + "</p>";
   teksti += `
           <h1>${data.toteutuksen_nimi}</h1>
-          <p>${data.osallistujien_lukumaara}</p>
-          <p>${data.osallistujien_nimet.join(', ')}</p>
-          <p>${data.toteutuksen_aika.alkamisaika} - ${data.toteutuksen_aika.loppumisaika}</p>
-          <p>${data.toteutuksen_kesto_viikoissa}</p>
-          <img src="${data.kuva}" alt="Kuva liittyen opintojaksoon" style="max-width: 400px;">
+          <p>Osallistujien lukumäärä: ${data.osallistujien_lukumaara}</p>
+          <p>Osallistujien nimet: ${data.osallistujien_nimet.join(', ')}</p>
+          <p>Toteutuksen ajankohta: ${data.toteutuksen_aika.alkamisaika} - ${data.toteutuksen_aika.loppumisaika}</p>
+          <p>Toteutuksen kesto viikoissa: ${data.toteutuksen_kesto_viikoissa}</p>
+          <img src="${data.kuva}" alt="Kuva liittyen opintojaksoon" />
         `;
         vastausDiv.innerHTML = teksti;
       }

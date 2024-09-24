@@ -10,7 +10,7 @@
     </div>
 </body>
 <script>
-     fetch('https://run.mocky.io/v3/24cf15f1-5977-4d26-9c40-645531d55746')
+     fetch('https://run.mocky.io/v3/8506ea16-f6d2-4b6a-b922-6fae8ad8f48c')
      
      .then(function (response) {
   return response.json();
@@ -37,9 +37,8 @@ function kerro(data) {
           <p>Osallistujien nimet: ${data.osallistujien_nimet.join(', ')}</p>
           <p>Toteutuksen ajankohta: ${data.toteutuksen_aika.alkamisaika} - ${data.toteutuksen_aika.loppumisaika}</p>
           <p>Toteutuksen kesto viikoissa: ${data.toteutuksen_kesto_viikoissa}</p>
-          <img src="digitekniikat.jpg" alt="Kuva liittyen opintojaksoon" />
+          <img src="${data.kuva}" alt="Kuva liittyen opintojaksoon" />
         `;
-        <img src="digitekniikat.jpg" alt="Kuva liittyen opintojaksoon" />
         vastausDiv.innerHTML = teksti;
       }
 </script>

@@ -58,7 +58,35 @@ function tapahtumat(data) {
   document.getElementById("d44").innerHTML = teksti;
 }
 
+function tapahtumat(data) {
+    
+            var vastausDiv = document.getElementById("vastaus");
 
+  
+            data.forEach(function (tapahtuma) {
+  
+                var tapahtumaDiv = document.createElement("div");
+                tapahtumaDiv.classList.add("tapahtuma", "mb-4", "p-3", "border", "rounded");
+
+                var nimi = document.createElement("h3");
+                nimi.innerText = tapahtuma.name.fi;
+                tapahtumaDiv.appendChild(nimi);
+
+                var kuvaus = document.createElement("p");
+                kuvaus.innerText = tapahtuma.description?.fi || "Ei kuvausta saatavilla.";
+                tapahtumaDiv.appendChild(kuvaus);
+
+     
+                var linkki = document.createElement("a");
+                linkki.href = tapahtuma.info_url?.fi || "#";
+                linkki.target = "_blank";
+                linkki.innerText = "Lisätietoja";
+                tapahtumaDiv.appendChild(linkki);
+
+
+                vastausDiv.appendChild(tapahtumaDiv);
+            });
+        }
 
 
     </script>

@@ -53,19 +53,30 @@ function kamera(data) {
                 var preset = data.presets[i];
                 
 
+                for (var i = 0; i < data.presets.length; i++) {
+                var preset = data.presets[i];
+                
+  
+                var kuvaUrl = "https://weathercam.digitraffic.fi/" + preset.id + ".jpg";
+                var aika = preset.measuredTime; 
+
+  
                 var kuvaElement = document.createElement("img");
-                kuvaElement.src = preset.id; 
+                kuvaElement.src = kuvaUrl; 
                 kuvaElement.alt = "Liikennekameran kuva";
+                kuvaElement.style.width = "100%"; 
 
-
+ 
                 var aikaElement = document.createElement("p");
-                aikaElement.textContent = "Aika: " + preset.measuredTime;
+                aikaElement.textContent = "Aika: " + aika; 
 
-
+                // Lisätään aika ja kuva sivulle
                 vastaus.appendChild(aikaElement);
                 vastaus.appendChild(kuvaElement);
             }
         }
+
+            }
     </script>
 </body>
 </html>

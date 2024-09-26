@@ -63,7 +63,7 @@
 
 
 function saa(data){
-    teksti = "<div class='col-md-6'><h1>" + data.name + "</h1>";
+    var teksti = "<div class='col-md-6'><p>Kaupunki: " + data.name + "</p>";
     teksti += "<p>Kuvaus: " + data.weather[0].description + "</p>";
             teksti += "<p>Lämpötila: " + data.main.temp + " &deg;C</p>";
             teksti += "<p>Tuulen nopeus: " + data.wind.speed + " m/s</p>";

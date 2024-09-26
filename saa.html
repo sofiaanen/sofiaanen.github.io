@@ -27,50 +27,51 @@
         </div>
     </nav>
 
-    <div class="container mt-4">
+    <div id="vastaus" class="container mt-4">
 
     </div>
 
     <script>
-        const apiKey = '665ecd56dfc08dbb50feb8b8f5034e28';
-        
+        fetch(‘https://api.openweathermap.org/data/2.5/weather?lang=fi&q=helsinki&units=metric&APPID=314de1b8dabfbace7321a5ff474e27d1')
+
         .then(function (response) { 
-    return response.json();
-    })
-    
-    .then(function (responseJson) {
-        tapahtumat(responseJson)
+            return response.json();
 })
 
+.then(function (responseJson) {
+    saa(responseJson);
+})
 .catch(function (error) { 
     document.getElementById("vastaus").innerHTML = 
-    "<p>Tietoa ei pystytä hakemaan </p>"+ error;
+    "<p>Tietoa ei pystytä hakemaan</p>";
+})
+
+    fetch('https://api.openweathermap.org/data/2.5/weather?lang=fi&q=tampere&units=metric&APPID=314de1b8dabfbace7321a5ff474e27d1')
+
+.then(function (response) { 
+            return response.json();
+})
+
+.then(function (responseJson) {
+    saa(responseJson);
+})
+.catch(function (error) { 
+    document.getElementById("vastaus").innerHTML = 
+    "<p>Tietoa ei pystytä hakemaan</p>";
 })
 
 
-function haeSaa(kaupunki, elementtiId) {
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${kaupunki}&appid=${apiKey}&units=metric&lang=fi`;
-
-    fetch(url)
-        .then(response => response.json())
-        .then(data => {
-            const lampotila = data.main.temp;
-            const kuvaus = data.weather[0].description;
-            const icon = data.weather[0].icon;
-            const iconUrl = `http://openweathermap.org/img/wn/${icon}@2x.png`;
-
-
-            document.getElementById(elementtiId).innerHTML = `
-                <p>Lämpötila: ${lampotila}°C</p>
-                <p>Säätila: ${kuvaus}</p>
-                <img src="${iconUrl}" alt="Sääikoni">
-            `;
-        })
+function saa(data){
+    var teksti = ""; 
+    teksti = "<h1>" + data.name + "</h1>";
+    teksti += "<p>Kuvaus: " + data.weather[0].description + "</p>";
+            teksti += "<p>Lämpötila: " + data.main.temp + " &deg;C</p>";
+            teksti += "<p>Tuulen nopeus: " + data.wind.speed + " m/s</p>";
+            var kuva = 'http://openweathermap.org/img/w/' + data.weather[0].icon + '.png';
+            teksti += "<p><img src='" + kuva + "' alt='sääkuva'></p>";
+    document.getElementById("vastaus").innerHTML = teksti;
 }
 
-
-haeSaa('Helsinki', 'helsinki-sa');
-haeSaa('Tampere', 'tampere-sa');
     </script>
 
 </body>

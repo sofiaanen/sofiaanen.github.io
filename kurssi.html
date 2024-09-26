@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fi">
 <head>
-  <title>JSON Example</title>  
+  <title>Kurssi</title>  
   <meta charset="utf-8">
   <style>
     nav {
@@ -25,13 +25,12 @@
 </style>
   </head>
 <body> 
+  <nav>
+    <a href="kurssi.html">Kurssi</a>
+    <a href="toteutus.html">Toteutus</a>
+</nav>
     <div id="vastaus">
     </div>
-    <button id="switchPageButton">Siirry toteutus.html-sivulle</button>
-    <nav>
-      <a href="kurssi.html">Kurssi</a>
-      <a href="toteutus.html">Toteutus</a>
-  </nav>
 </body>
 <script>
     fetch('https://run.mocky.io/v3/45c8776f-01b4-472f-be51-53fe5c958119')
@@ -72,12 +71,5 @@ function kerro(data) {
         vastausDiv.innerHTML = teksti;
       }
 
-      document.getElementById('switchPageButton').onclick = function() {
-            if (window.location.href.includes('kurssi.html')) {
-                window.location.href = 'toteutus.html';
-            } else {
-                window.location.href = 'kurssi.html';
-            }
-        };
 
 </script>

@@ -33,6 +33,19 @@
 
     <script>
         const apiKey = '665ecd56dfc08dbb50feb8b8f5034e28';
+        
+        .then(function (response) { 
+    return response.json();
+    })
+    
+    .then(function (responseJson) {
+        tapahtumat(responseJson)
+})
+
+.catch(function (error) { 
+    document.getElementById("vastaus").innerHTML = 
+    "<p>Tietoa ei pystytä hakemaan </p>"+ error;
+})
 
 
 function haeSaa(kaupunki, elementtiId) {
@@ -53,10 +66,6 @@ function haeSaa(kaupunki, elementtiId) {
                 <img src="${iconUrl}" alt="Sääikoni">
             `;
         })
-        .catch(error => {
-            document.getElementById(elementtiId).innerHTML = "<p>Tietoa ei voitu hakea.</p>";
-            console.error("Virhe haettaessa säätietoja:", error);
-        });
 }
 
 

@@ -32,49 +32,35 @@
     </div>
 
     <script>
-         fetch('https://api.visittampere.com/api/v1/visittampere/event/published/all/?format=json&lang=fi')
-        .then(function (response) { 
-            return response.json(); 
-        })
-        .then(function (responseJson) {
+    fetch('https://api.visittampere.com/api/v1/visittampere/event/published/all/?for mat=json&lang=fi')
+    
+    .then(function (response) { 
+    return response.json();
+    })
+    
+    .then(function (responseJson) {
+        tapahtumat(responseJson)
+})
 
-            tapahtumat(responseJson);
-        })
-        .catch(function (error) { 
-            document.getElementById("vastaus").innerHTML = "<p>Tietoa ei pystytä hakemaan: </p>" + error;
-        });
+.catch(function (error) { 
+    document.getElementById("vastaus").innerHTML = 
+    "<p>Tietoa ei pystytä hakemaan </p>"+ error;
+})
 
- 
-        function tapahtumat(data) {
-
-            var vastausDiv = document.getElementById("vastaus");
-
-
-            data.forEach(function (tapahtuma) {
-
-                var tapahtumaDiv = document.createElement("div");
-                tapahtumaDiv.classList.add("tapahtuma", "mb-4", "p-3", "border", "rounded");
-
-                var nimi = document.createElement("h3");
-                nimi.innerText = tapahtuma.name.fi;
-                tapahtumaDiv.appendChild(nimi);
-
-                var kuvaus = document.createElement("p");
-                kuvaus.innerText = tapahtuma.description?.fi || "Ei kuvausta saatavilla.";
-                tapahtumaDiv.appendChild(kuvaus);
-
-       
-                var linkki = document.createElement("a");
-                linkki.href = tapahtuma.info_url?.fi || "#";
-                linkki.target = "_blank";
-                linkki.innerText = "Lisätietoja";
-                tapahtumaDiv.appendChild(linkki);
-
-
-                vastausDiv.appendChild(tapahtumaDiv);
-            });
+function tapahtumat(data) {
+        var teksti = "";
+        teksti = "<h1>Tampereella tapahtuu</h1>";
+        for (var i = 0; i < data.length; i++) {
+          teksti = teksti + "<h3>" + data[i].name + "</h3>";
+          teksti = teksti + "<p>" + data[i].description + "</p>";
+          teksti = teksti + "<p> <a href=" + data[i].url + ">" + data[i].url + "</a></p>";
         }
-     
+  document.getElementById("d44").innerHTML = teksti;
+}
+
+
+
+
     </script>
 </body>
 </html>

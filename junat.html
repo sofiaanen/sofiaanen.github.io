@@ -59,19 +59,21 @@ for (var i = 0; i < data.length; i++) {
             if (data[i].trainCategory === "Long-distance") {
 
                 var lähtöAika = data[i].timeTableRows[0].scheduledTime;
-                var saapumisAika = data[i].timeTableRows[data[i].timeTableRows.length - 1].scheduledTime;
-                
+                            var lähtöAsema = data[i].timeTableRows[0].stationShortCode;
 
-                var lähtöPvm = lähtöAika.substr(0, 10) + " kello: " + lähtöAika.substr(11, 5);
-                var saapumisPvm = saapumisAika.substr(0, 10) + " kello: " + saapumisAika.substr(11, 5);
-                
+                            var saapumisAika = data[i].timeTableRows[data[i].timeTableRows.length - 1].scheduledTime;
+                            var saapumisAsema = data[i].timeTableRows[data[i].timeTableRows.length - 1].stationShortCode;
 
-                htmlContent += "<li class='list-group-item'>" +
-                    "Juna nro: " + data[i].trainNumber + "<br>" +
-                    "Juna tyyppi: " + data[i].trainType + "<br>" +
-                    "Lähtö: " + lähtöPvm + "<br>" +
-                    "Saapuminen: " + saapumisPvm +
-                    "</li>";
+
+                            var lähtöPvm = lähtöAika.substr(0, 10) + " kello: " + lähtöAika.substr(11, 5);
+                            var saapumisPvm = saapumisAika.substr(0, 10) + " kello: " + saapumisAika.substr(11, 5);
+
+                            htmlContent += "<li class='list-group-item'>" +
+                                "Juna nro: " + data[i].trainNumber + "<br>" +
+                                "Juna tyyppi: " + data[i].trainType + "<br>" +
+                                "Lähtöasema: " + lähtöAsema + " Lähtöaika: " + lähtöPvm + "<br>" +
+                                "Saapumispaikka: " + saapumisAsema + " Saapumisaika: " + saapumisPvm +
+                                "</li>";
             }
         }
     }

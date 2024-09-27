@@ -38,7 +38,7 @@ fetch('https://rata.digitraffic.fi/api/v1/live-trains/station/HKI?departing_trai
 })
 
 .then(function (responseJson) {
-kamera(responseJson);
+junat(responseJson);
 })
 .catch(function (error) { 
 document.getElementById("vastaus").innerHTML = 

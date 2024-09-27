@@ -50,20 +50,19 @@ function junat(data) {
             var htmlContent = "<ul class='list-group'>"; 
 
 
-for (var i = 0; i < data.length; i++) {
+                for (var i = 0; i < data.length; i++) {
+                for (var j = 0; j < data[i].timeTableRows.length; j++) {
 
-    for (var j = 0; j < data[i].timeTableRows.length; j++) {
+                    if (data[i].timeTableRows[j].stationShortCode === "TPE" && data[i].timeTableRows[j].type === "ARRIVAL") {
+                        if (data[i].trainCategory === "Long-distance") {
+                            
 
-        if (data[i].timeTableRows[j].stationShortCode === "TPE" && data[i].timeTableRows[j].type === "DEPARTURE") {
-
-            if (data[i].trainCategory === "Long-distance") {
-
-                var lähtöAika = data[i].timeTableRows[0].scheduledTime;
+                            var lähtöAika = data[i].timeTableRows[0].scheduledTime;
                             var lähtöAsema = data[i].timeTableRows[0].stationShortCode;
 
-                            var saapumisAika = data[i].timeTableRows[data[i].timeTableRows.length - 1].scheduledTime;
-                            var saapumisAsema = data[i].timeTableRows[data[i].timeTableRows.length - 1].stationShortCode;
 
+                            var saapumisAika = data[i].timeTableRows[j].scheduledTime; 
+                            var saapumisAsema = data[i].timeTableRows[j].stationShortCode; 
 
                             var lähtöPvm = lähtöAika.substr(0, 10) + " kello: " + lähtöAika.substr(11, 5);
                             var saapumisPvm = saapumisAika.substr(0, 10) + " kello: " + saapumisAika.substr(11, 5);

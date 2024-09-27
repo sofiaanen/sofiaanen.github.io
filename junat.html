@@ -25,12 +25,61 @@
         </div>
     </nav>
 
-    <div class="container">
-        <h1>Junat</h1>
-        <p>Tässä on tietoa junista...</p>
+    <div id="vastaus" class="container mt-4">
+        <h1>Mennäänkö junalla Tampereelle</h1>
+        <p>Kuinkahan usein junia menee?</p>
     </div>
 
     <script>
+fetch('https://rata.digitraffic.fi/api/v1/live-trains/station/HKI?departing_trains=100&include_nonstopping=false')
+
+.then(function (response) { 
+    return response.json();
+})
+
+.then(function (responseJson) {
+kamera(responseJson);
+})
+.catch(function (error) { 
+document.getElementById("vastaus").innerHTML = 
+"<p>Tietoa ei pystytä hakemaan</p>";
+})
+
+function junat(data) {
+            var vastaus = document.getElementById("vastaus");
+            var htmlContent = "<ul class='list-group'>"; 
+
+
+for (var i = 0; i < data.length; i++) {
+
+    for (var j = 0; j < data[i].timeTableRows.length; j++) {
+
+        if (data[i].timeTableRows[j].stationShortCode === "TPE" && data[i].timeTableRows[j].type === "DEPARTURE") {
+
+            if (data[i].trainCategory === "Long-distance") {
+
+                var lähtöAika = data[i].timeTableRows[0].scheduledTime;
+                var saapumisAika = data[i].timeTableRows[data[i].timeTableRows.length - 1].scheduledTime;
+                
+
+                var lähtöPvm = lähtöAika.substr(0, 10) + " kello: " + lähtöAika.substr(11, 5);
+                var saapumisPvm = saapumisAika.substr(0, 10) + " kello: " + saapumisAika.substr(11, 5);
+                
+
+                htmlContent += "<li class='list-group-item'>" +
+                    "Juna nro: " + data[i].trainNumber + "<br>" +
+                    "Juna tyyppi: " + data[i].trainType + "<br>" +
+                    "Lähtö: " + lähtöPvm + "<br>" +
+                    "Saapuminen: " + saapumisPvm +
+                    "</li>";
+            }
+        }
+    }
+}
+
+htmlContent += "</ul>"; 
+vastaus.innerHTML += htmlContent; 
+}
 
     </script>
 </body>

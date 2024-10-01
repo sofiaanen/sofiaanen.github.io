@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <title>Matkailukohteet</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .weather-card {
+            margin-right: 15px;
+        }
+        .weather-container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .weather-card img {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Matkailukohteet</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#matkakohteet">Matkakohteet</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#kaupungit">Pääkaupungit</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#saa">Sää</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <section id="matkakohteet" class="container my-5">
+        <h2>Matkakohteet</h2>
+        <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="kanada.jpg" class="d-block w-100" alt="kanada">
+                    <div class="carousel-caption">
+                        <h3>Kanada</h3>
+                        <p>Luonnonkaunis ja monikulttuurinen maa, joka tunnetaan laajoista metsistään ja ystävällisistä ihmisistään</p>
+                      </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="ranska.jpg" class="d-block w-100" alt="ranska">
+                    <div class="carousel-caption"></div>
+                        <h3>Ranska</h3>
+                        <p>Romanttinen kohde, joka on täynnä historiaa, taidetta ja maailmanluokan gastronomiaa.</p>
+                      </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="thaimaa.webp" class="d-block w-100" alt="thaimaa">
+                    <div class="carousel-caption"></div>
+                        <h3>Ranska</h3>
+                        <p>Trooppinen paratiisi, jossa yhdistyvät vilkkaat kaupungit, kauniit rannat ja rikas kulttuuriperintö.</p>
+                      </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Edellinen</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Seuraava</span>
+            </button>
+        </div>
+    </section>
+
+    <section id="kaupungit" class="container my-5">
+        <h2>Kaupungit</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="ottawa.jpg" class="card-img-top" alt="ottawa">
+                    <div class="card-body">
+                        <h5 class="card-title">Ottawa</h5>
+                        <p class="card-text">Kanadan vehreä ja rauhallinen pääkaupunki, jossa yhdistyvät historialliset maamerkit, kuten parlamenttitalo, ja lukuisat museot sekä monipuoliset ulkoilumahdollisuudet Rideau-kanavan varrella.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="pariisi.jpg" class="card-img-top" alt="pariisi">
+                    <div class="card-body">
+                        <h5 class="card-title">Pariisi</h5>
+                        <p class="card-text">Rakkauden ja valojen kaupunki, joka tunnetaan maailmankuuluista maamerkeistään, kuten Eiffel-tornista ja Louvresta. Pariisi on taiteen, historian, muodin ja kulinarismin keskus, jossa menneisyys ja moderni kaupunkielämä kohtaavat.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="bangkok.jpg" class="card-img-top" alt="bangkok">
+                    <div class="card-body">
+                        <h5 class="card-title">Bangkok</h5>
+                        <p class="card-text">Thaimaassa sijaitseva vilkas ja moderni suurkaupunki, jossa pilvenpiirtäjät, värikkäät markkinat ja perinteiset buddhalaiset temppelit, kuten Wat Pho ja Wat Arun, luovat ainutlaatuisen sekoituksen perinteistä ja nykyaikaisuudesta.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="saa" class="container my-5">
+        <h2>Sää</h2>
+        <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Sääennuste
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        Säätiedot: Pilvistä ja sateista, lämpötila noin 15°C.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+
+    </script>
+</body>
+</html>

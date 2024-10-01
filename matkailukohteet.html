@@ -44,7 +44,6 @@
 
 
     <section id="matkakohteet" class="container my-5">
-        <h2>Matkakohteet</h2>
         <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -81,7 +80,7 @@
     </section>
 
     <section id="kaupungit" class="container my-5">
-        <h2>Kaupungit</h2>
+        <h2>Pääkaupungit</h2>
         <div class="row">
             <div class="col-md-4">
                 <div class="card">
@@ -125,7 +124,9 @@
                 </h2>
                 <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
-                        Säätiedot: Pilvistä ja sateista, lämpötila noin 15°C.
+                        <div id="weatherContainer" class="weather-container">
+                    
+                        </div>
                     </div>
                 </div>
             </div>
@@ -133,6 +134,59 @@
     </section>
 
     <script>
+fetch('https://api.openweathermap.org/data/2.5/weather?lang=fi&q=ottawa&units=metric&APPID=314de1b8dabfbace7321a5ff474e27d1')
+
+.then(function (response) { 
+    return response.json();
+})
+
+.then(function (responseJson) {
+saa(responseJson);
+})
+.catch(function (error) { 
+document.getElementById("vastaus").innerHTML = 
+"<p>Tietoa ei pystytä hakemaan</p>";
+})
+
+fetch('https://api.openweathermap.org/data/2.5/weather?lang=fi&q=pariisi&units=metric&APPID=314de1b8dabfbace7321a5ff474e27d1')
+
+        .then(function (response) { 
+            return response.json();
+})
+
+.then(function (responseJson) {
+    saa(responseJson);
+})
+.catch(function (error) { 
+    document.getElementById("vastaus").innerHTML = 
+    "<p>Tietoa ei pystytä hakemaan</p>";
+})
+
+fetch('https://api.openweathermap.org/data/2.5/weather?lang=fi&q=bangkok&units=metric&APPID=314de1b8dabfbace7321a5ff474e27d1')
+
+        .then(function (response) { 
+            return response.json();
+})
+
+.then(function (responseJson) {
+    saa(responseJson);
+})
+.catch(function (error) { 
+    document.getElementById("vastaus").innerHTML = 
+    "<p>Tietoa ei pystytä hakemaan</p>";
+})
+
+function saa(data){
+    var teksti = "<div class='col-md-6'><p>Kaupunki: " + data.name + "</p>";
+    teksti += "<p>Kuvaus: " + data.weather[0].description + "</p>";
+            teksti += "<p>Lämpötila: " + data.main.temp + " &deg;C</p>";
+            teksti += "<p>Tuulen nopeus: " + data.wind.speed + " m/s</p>";
+            var kuva = 'http://openweathermap.org/img/w/' + data.weather[0].icon + '.png';
+            teksti += "<p><img src='" + kuva + "' alt='sääkuva'></p>";
+            document.getElementById("weatherContainer").getElementsByClassName("row")[0].innerHTML += teksti;
+        }
+
+
 
     </script>
 </body>

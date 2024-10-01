@@ -134,60 +134,33 @@
     </section>
 
     <script>
-fetch('https://api.openweathermap.org/data/2.5/weather?lang=fi&q=ottawa&units=metric&APPID=314de1b8dabfbace7321a5ff474e27d1')
+const kaupunki = [
+            { name: "Ottawa", url: "https://api.openweathermap.org/data/2.5/weather?lang=fi&q=ottawa&units=metric&APPID=314de1b8dabfbace7321a5ff474e27d1" },
+            { name: "Pariisi", url: "https://api.openweathermap.org/data/2.5/weather?lang=fi&q=pariisi&units=metric&APPID=314de1b8dabfbace7321a5ff474e27d1" },
+            { name: "Bangkok", url: "https://api.openweathermap.org/data/2.5/weather?lang=fi&q=bangkok&units=metric&APPID=314de1b8dabfbace7321a5ff474e27d1" }
+        ];
 
-.then(function (response) { 
-    return response.json();
-})
+        kaupunki.forEach(kaupunki => {
+            fetch(kaupunki.url)
+                .then(response => response.json())
+                .then(data => saa(data, kaupunki.name))
+                .catch(error => {
+                    document.getElementById("weatherContainer").innerHTML += 
+                    "<p>Tietoa ei pystytä hakemaan</p>";
+                });
+        });
 
-.then(function (responseJson) {
-saa(responseJson);
-})
-.catch(function (error) { 
-document.getElementById("weatherContainer").innerHTML = 
-"<p>Tietoa ei pystytä hakemaan</p>";
-})
-
-fetch('https://api.openweathermap.org/data/2.5/weather?lang=fi&q=pariisi&units=metric&APPID=314de1b8dabfbace7321a5ff474e27d1')
-
-        .then(function (response) { 
-            return response.json();
-})
-
-.then(function (responseJson) {
-    saa(responseJson);
-})
-.catch(function (error) { 
-    document.getElementById("weatherContainer").innerHTML = 
-    "<p>Tietoa ei pystytä hakemaan</p>";
-})
-
-fetch('https://api.openweathermap.org/data/2.5/weather?lang=fi&q=bangkok&units=metric&APPID=314de1b8dabfbace7321a5ff474e27d1')
-
-        .then(function (response) { 
-            return response.json();
-})
-
-.then(function (responseJson) {
-    saa(responseJson);
-})
-.catch(function (error) { 
-    document.getElementById("weatherContainer").innerHTML = 
-    "<p>Tietoa ei pystytä hakemaan</p>";
-})
-
-function saa(data){
-    var teksti = "<div class='col-md-6'><p>Kaupunki: " + data.name + "</p>";
-    teksti += "<p>Kuvaus: " + data.weather[0].description + "</p>";
-            teksti += "<p>Lämpötila: " + data.main.temp + " &deg;C</p>";
-            teksti += "<p>Tuulen nopeus: " + data.wind.speed + " m/s</p>";
-            var kuva = 'http://openweathermap.org/img/w/' + data.weather[0].icon + '.png';
-            teksti += "<p><img src='" + kuva + "' alt='sääkuva'></p>";
-            document.getElementById("weatherContainer").getElementsByClassName("row")[0].innerHTML += teksti;
+        function saa(data, cityName) {
+            let teksti = `<div class='col-md-4'>
+                            <h5>Maa: ${data.sys.country}</h5>
+                            <p>Kaupunki: ${cityName}</p>
+                            <p>Kuvaus: ${data.weather[0].description}</p>
+                            <p>Lämpötila: ${data.main.temp} &deg;C</p>
+                            <p>Tuulen nopeus: ${data.wind.speed} m/s</p>
+                            <p><img src='http://openweathermap.org/img/w/${data.weather[0].icon}.png' alt='sääkuva'></p>
+                          </div>`;
+            document.getElementById("weatherContainer").innerHTML += teksti;
         }
-
-
-
     </script>
 </body>
 </html>
